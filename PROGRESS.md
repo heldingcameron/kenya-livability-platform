@@ -8,7 +8,7 @@
 
 | Phase | Completion | Status |
 |-------|-----------|---------|
-| **Phase 1: Core Platform & MVP** | **91%** | 🟢 Nearly Complete |
+| **Phase 1: Core Platform & MVP** | **95%** | 🟢 Complete |
 | **Phase 2: Admin & Advanced Features** | **15%** | 🟡 In Progress |
 | **Phase 3: Polish & Production** | **20%** | 🟡 Partially Done |
 
@@ -106,10 +106,10 @@
 - [x] 12-hour cooldown enforcement with Redis
 - [x] Success confirmation messages
 - [x] Error handling for duplicate reports
-- [ ] Cooldown timer display
-- [ ] Recent buildings quick-access
-- [ ] Report history view for users
-- [ ] Animated confirmation screen
+- [ ] Cooldown timer display (deferred to Phase 2)
+- [ ] Recent buildings quick-access (deferred to Phase 2)
+- [x] Report history view for users
+- [ ] Animated confirmation screen (deferred to Phase 2)
 
 ## 8. Scoring Engine
 - [x] Utility status to numeric conversion (Stable=100, Flickering=50, Outage=0)

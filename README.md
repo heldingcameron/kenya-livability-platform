@@ -159,7 +159,7 @@ JWT_SECRET="your-super-secret-jwt-key-change-in-production"
 JWT_EXPIRES_IN="7d"
 
 # Mapbox
-VITE_MAPBOX_TOKEN="pk.eyJ1Ijoia2VueWFubm9vYiIsImEiOiJjbWl6MDI1YjQwaWJzM2dzZDVycTc5eG8wIn0.3FwhEXFAgdtWYskB7_amGw"
+VITE_MAPBOX_TOKEN="your-mapbox-public-token-here"
 
 # Server
 PORT=3000

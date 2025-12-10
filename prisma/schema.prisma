@@ -1,0 +1,112 @@
+// Prisma Schema for Kenya Infrastructure Livability Platform
+// Database: PostgreSQL 16
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Enums
+enum Role {
+  USER
+  ADMIN
+}
+
+enum UtilityType {
+  POWER
+  WATER
+  INTERNET
+}
+
+enum Status {
+  STABLE
+  FLICKERING
+  OUTAGE
+}
+
+enum AuditAction {
+  DELETE_REPORT
+  RESTORE_REPORT
+  FLAG_BUILDING
+  UNFLAG_BUILDING
+}
+
+// Models
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  reports       Report[]
+  auditActions  AdminAuditLog[]
+
+  @@index([email])
+}
+
+model Building {
+  id            String   @id @default(uuid())
+  name          String
+  latitude      Float
+  longitude     Float
+  neighbourhood String
+  city          String   @default("Nairobi")
+  suspicious    Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  reports Report[]
+
+  @@index([latitude, longitude])
+  @@index([neighbourhood])
+  @@index([suspicious])
+}
+
+model Report {
+  id          String      @id @default(uuid())
+  utilityType UtilityType
+  status      Status
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  deletedAt   DateTime?   // Soft delete
+
+  // Foreign Keys
+  userId     String
+  buildingId String
+
+  // Relations
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  building Building @relation(fields: [buildingId], references: [id], onDelete: Cascade)
+
+  @@index([buildingId, utilityType, createdAt])
+  @@index([userId])
+  @@index([deletedAt])
+  @@index([createdAt])
+}
+
+model AdminAuditLog {
+  id          String      @id @default(uuid())
+  action      AuditAction
+  targetType  String      // "Report" or "Building"
+  targetId    String
+  metadata    Json?       // Additional context (e.g., reason, previous state)
+  createdAt   DateTime    @default(now())
+
+  // Foreign Key
+  adminId String
+
+  // Relations
+  admin User @relation(fields: [adminId], references: [id], onDelete: Cascade)
+
+  @@index([adminId])
+  @@index([createdAt])
+  @@index([targetType, targetId])
+}

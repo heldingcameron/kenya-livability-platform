@@ -1,0 +1,35 @@
+/* Mapbox Popup Overrides - Prevent overflow beyond viewport */
+
+/* Constrain popup container to viewport */
+.mapboxgl-popup {
+    max-width: 90vw !important;
+    box-sizing: border-box;
+}
+
+/* Ensure popup content respects parent constraints */
+.mapboxgl-popup-content {
+    padding: 0 !important;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Adjust for smaller viewports */
+@media (max-width: 640px) {
+    .mapboxgl-popup {
+        max-width: 95vw !important;
+    }
+}
+
+/* Ensure close button is properly positioned */
+.mapboxgl-popup-close-button {
+    font-size: 24px;
+    padding: 4px 8px;
+    color: #64748b;
+    transition: color 0.2s;
+}
+
+.mapboxgl-popup-close-button:hover {
+    background-color: transparent;
+    color: #334155;
+}

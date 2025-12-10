@@ -1,0 +1,39 @@
+{
+  "name": "kenya-livability-platform",
+  "version": "1.0.0",
+  "description": "Kenya Infrastructure Livability Platform - Track power, water, and internet reliability",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"bun run dev:server\" \"bun run dev:client\"",
+    "dev:server": "cd server && bun run dev",
+    "dev:client": "cd client && bun run dev",
+    "build": "bun run build:client && bun run build:server",
+    "build:client": "cd client && bun run build",
+    "build:server": "cd server && bun run build",
+    "prisma:generate": "cd server && bunx prisma generate",
+    "prisma:migrate": "cd server && bunx prisma migrate dev",
+    "prisma:studio": "cd server && bunx prisma studio",
+    "prisma:seed": "cd server && bun prisma/seed.ts",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "setup": "bun run docker:up && bun run prisma:migrate && bun run prisma:seed",
+    "clean": "bun run docker:down && rm -rf node_modules client/node_modules server/node_modules"
+  },
+  "keywords": [
+    "kenya",
+    "infrastructure",
+    "livability",
+    "utilities",
+    "crowdsourcing"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prisma": "^5.22.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0"
+  }
+}

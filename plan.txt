@@ -1,0 +1,440 @@
+
+Plan: Kenya Infrastructure Livability Platform v1.0 - Component-Heavy Modern Design
+________________________________________
+1. Design System & Color Science Foundation
+•	Define color palette based on color science principles optimized for data visualization:
+•	Primary Foundation: Warm earth tones reflecting Kenya's landscape (terracotta orange, deep clay red, rich soil brown)
+•	Data Status Colors: Green (#10b981 - growth/stability), Amber (#f59e0b - caution), Red (#ef4444 - critical), Slate (#64748b - neutral/insufficient data)
+•	Accent & Energy: Vibrant teal/cyan (#06b6d4) for interactive elements and calls-to-action
+•	Neutrals: Carefully selected grays with warm undertones for text hierarchy and backgrounds
+•	Semantic Colors: Success states, error states, warning states, info states with consistent psychology
+•	Create CSS custom properties for entire color palette with semantic naming conventions
+•	Build comprehensive color contrast matrix ensuring WCAG AA compliance for all text combinations
+•	Document color psychology rationale for each palette choice
+•	Create dark mode variant of entire palette maintaining contrast and readability
+________________________________________
+2. Typography & Hierarchy System
+•	Select high-readability typeface system with strong data visualization capabilities
+•	Define type scale with clear hierarchy: Display (42px), Heading 1 (32px), Heading 2 (24px), Heading 3 (20px), Body Large (18px), Body (16px), Body Small (14px), Caption (12px)
+•	Establish font weights: Regular (400) for body, Medium (500) for UI elements, Semi-bold (600) for headings, Bold (700) for emphasis
+•	Configure line height ratios for optimal readability: 1.6 for body text, 1.4 for headings, 1.2 for captions
+•	Create letter-spacing guidelines for different text sizes
+•	Build text color variants with semantic meanings (primary, secondary, tertiary, muted, error, success)
+________________________________________
+3. Spacing & Layout System
+•	Establish 4px-based spacing grid for consistent alignment and breathing room
+•	Define spacing scale: xs (4px), sm (8px), md (12px), lg (16px), xl (24px), 2xl (32px), 3xl (48px), 4xl (64px)
+•	Create container widths for responsive design: mobile (full - 16px), tablet (640px), desktop (1024px), wide (1280px)
+•	Build margin and padding utility system using Tailwind with semantic class names
+•	Document grid system for page layouts with common patterns (two-column, three-column, sidebar)
+•	Create gutter and gap guidelines for different layout contexts
+________________________________________
+4. Elevation & Shadows System
+•	Design shadow depth system reflecting material design principles:
+•	Level 1 (Subtle): Small, fine details on interactive elements
+•	Level 2 (Raised): Cards, buttons, form inputs
+•	Level 3 (Floating): Modals, popovers, dropdowns
+•	Level 4 (Elevated): Floating action buttons, sticky headers
+•	Level 5 (High): Full-screen modals, critical notifications
+•	Create layered shadow definitions with blur, spread, and opacity combinations
+•	Build hover and active state shadows for interactive elements
+•	Document when to use elevation vs. border vs. background color for visual hierarchy
+________________________________________
+5. Interactive Component Library
+•	Buttons: Primary (filled), Secondary (outlined), Tertiary (text), Ghost (minimal), with sizes (sm, md, lg) and states (default, hover, active, disabled, loading)
+•	Form Controls: Text inputs with label, placeholder, error states, focus rings, validation icons, helper text
+•	Checkboxes & Radios: Custom styled with smooth transitions, clear focus states, disabled variants
+•	Dropdowns/Selects: Smooth open/close animations, keyboard navigation, search capability, grouped options
+•	Badges & Pills: Color-coded status indicators with icon support, closeable variants
+•	Progress Indicators: Circular progress rings with percentage display, linear progress bars, step indicators
+•	Toggles: Smooth animated switches with accessible labels
+•	Cards: Elevated containers with hover states, border variants, dark backgrounds for data emphasis
+•	Modals & Dialogs: Centered overlays with smooth fade-in animations, focus trapping, accessible close buttons
+•	Popovers & Tooltips: Position-aware tooltips with animation, arrow indicators, keyboard dismissal
+•	Spinners & Loaders: Animated loading states with multiple variants (dots, spinner, skeleton screens)
+•	Alert Boxes: Success, error, warning, info variants with icon + text + dismiss capability
+•	Avatar Groups: Circular user images with initials fallback, stacking behavior for multiple users
+________________________________________
+6. Navigation & Header System
+•	Header Design: Sticky navigation with logo/branding, left-aligned primary nav, right-aligned user profile menu
+•	Smooth scroll behavior with header hiding on downscroll for mobile
+•	Consistent 60px height on desktop, responsive on mobile
+•	Background with subtle backdrop blur effect for depth
+•	Logo rendered using Lucide icon with text mark
+•	Primary Navigation: Icon + label items with active state underline, smooth color transitions
+•	User Profile Menu: Avatar button triggering dropdown with profile link, settings, logout
+•	Mobile Navigation: Hamburger menu icon triggering full-height slide-out drawer with smooth animation
+•	Breadcrumb Navigation: Clickable path indicators showing current location in hierarchy
+•	Tabs Component: Horizontal tab groups with smooth underline animation, keyboard arrow navigation
+________________________________________
+7. Data Visualization Components
+•	Score Badges: Large circular displays showing numeric score with color coding, responsive sizing
+•	Animated counter effect on initial load
+•	Animated ring stroke filling from 0% to actual percentage
+•	Trailing text showing status interpretation
+•	Utility Status Indicators: Icon + status text combinations with color psychology (green for stable, amber for flickering, red for outage)
+•	Mini Score Cards: Compact utility score displays in grid layout with trend sparklines
+•	Progress Rings: Multi-ring displays showing power, water, internet simultaneously with animated strokes
+•	Score History Chart: Simple line chart showing score trends over time with date labels
+•	Heatmap Visualization: Color-coded grid overlay on map showing score density
+•	Stats Dashboard Cards: Key metrics in 2x2 or 3x3 grid showing platform statistics with icons
+________________________________________
+8. Map Component & Interactions
+•	Custom Markers: Designed building markers with score-based colors, smooth scale animations on hover
+•	Green (#10b981) for scores 75+, animated subtle glow
+•	Yellow (#f59e0b) for scores 40-74, steady appearance
+•	Red (#ef4444) for scores below 40, attention-drawing glow
+•	Grey (#9ca3af) for insufficient data, desaturated appearance
+•	Marker Clusters: Grouped markers with animated collapse/expand transitions
+•	Info Popups: Beautiful overlay cards showing building name, score, utilities, with smooth entrance animation
+•	Map Controls: Custom-styled zoom, pan, fullscreen buttons positioned elegantly
+•	Location Search: Searchable location input with autocomplete dropdown showing matches
+•	Map Layers Toggle: Switch buttons for citywide/neighbourhood/building views with smooth layer transitions
+•	Heatmap Layer: Optional overlay with color intensity reflecting score density, alpha blending
+•	Smooth Pan & Zoom: Eased camera movements between buildings, neighborhoods, and city views
+________________________________________
+9. Building Detail Page Design
+•	Hero Section: Building name, address, photo placeholder, favorite star button (if user-authenticated)
+•	Score Summary Widget: Large composite score ring with three nested utility rings showing individual scores
+•	Animated entrance with staggered utility animation
+•	Tooltip on hover explaining score calculation
+•	"Low data - Score unavailable" message with info icon if insufficient data
+•	Utility Cards: Three cards in grid (Power, Water, Internet) each showing:
+•	Large icon from Lucide
+•	Current status with color indicator
+•	Numeric score with trend (up/down arrow)
+•	Last report time relative to now (e.g., "2 hours ago")
+•	Recent change sparkline
+•	Report History Timeline: Chronological list of reports with:
+•	Timestamp badges (color-coded by utility)
+•	Status indicator with icon
+•	User avatar (if tracked)
+•	Smooth entrance animation for newly loaded reports
+•	Submit Report Button: Prominent CTA with loading state animation during submission
+________________________________________
+10. Report Submission Flow
+•	Building Selector Modal:
+•	Search/autocomplete input with building suggestions
+•	Selected building preview card with address
+•	Recent buildings quick-access chips
+•	Utility Type Selector: Three large card buttons (Power, Water, Internet) with icons, click to select
+•	Status Selection: Three prominent radio button cards showing stable (green), flickering (amber), outage (red) options with descriptive text
+•	Confirmation Screen: Summary card showing selection with edit buttons, animated checkmark on successful submission
+•	Cooldown Timer: Visual countdown display if user has submitted recently for this utility/building combo, animated timer
+________________________________________
+11. Building Search & Browse Page
+•	Search Header: Large search input with icon, supporting building name queries
+•	Filter Chips: Tag-like filter buttons for neighbourhood, score range (with icon indicators for score levels)
+•	Results Grid: Responsive card layout (1 column mobile, 2 columns tablet, 3 columns desktop) showing:
+•	Building name with neighbourhood label
+•	Composite score badge
+•	Three mini utility score indicators in row
+•	Last report timestamp
+•	Smooth entrance animation for each card on load
+•	Sorting Dropdown: Sort by name, score (high to low), last report time
+•	Empty State: Friendly icon illustration with "No buildings found" message and action suggestion
+•	Loading State: Grid of skeleton card placeholders with pulse animation
+________________________________________
+12. Authentication Pages Design
+•	Register/Login Container: Centered card with subtle shadow, max-width 400px
+•	Form fields with smooth focus rings and animated underline
+•	Email input with validation icon (checkmark/x) appearing on blur
+•	Password input with show/hide toggle icon
+•	Password strength meter animated bar showing strength levels
+•	Submit button with loading spinner inside
+•	Error messages with alert icon appearing below field
+•	Link to toggle between register/login modes
+•	Social Auth Options (if implemented): Icon buttons for alternative login methods
+•	Forgot Password: Link triggering modal with email input and success confirmation
+________________________________________
+13. Admin Dashboard Layout
+•	Sidebar Navigation: Collapsible left sidebar with admin-specific menu items:
+•	Reports Manager (with unreviewed badge count)
+•	Buildings Manager
+•	Audit Log
+•	Platform Stats
+•	Settings
+•	Each item with icon and smooth hover transitions
+•	Main Content Area: Full-width responsive container showing selected admin section
+•	Header Stats Bar: Quick metrics bar showing new reports count, suspicious buildings, active users
+________________________________________
+14. Admin Reports Manager
+•	Reports Table: Sortable columns (timestamp, building, utility, status, user) with:
+•	Color-coded status badges
+•	Dropdown action menu (view, delete, restore) with smooth appearance
+•	Expandable rows showing full report details
+•	Batch selection checkboxes with select-all header checkbox
+•	Highlighted rows for flagged/suspicious reports
+•	Filters: Status dropdown, utility type filters, date range picker
+•	Delete Confirmation Modal: Warning message with building/utility details before soft-delete
+•	Restore Confirmation: Confirmation modal when restoring deleted reports
+________________________________________
+15. Admin Buildings Manager
+•	Buildings Table: Columns (name, neighbourhood, score, reports count, status) with:
+•	Color-coded status indicators (normal, suspicious flag)
+•	Edit/flag buttons in action column
+•	Expandable rows with recent report preview
+•	Suspicious Flag Toggle: Modal or inline toggle with notes field for flagging buildings
+•	Bulk Actions: Batch flag/unflag buildings with confirmation
+•	Search & Filter: By name, neighbourhood, suspicious status
+________________________________________
+16. Admin Audit Log Viewer
+•	Timeline Display: Vertical timeline showing moderation actions with:
+•	Timestamp labels
+•	Action description (e.g., "Deleted report from User X on Building Y")
+•	Action type badge (delete, restore, flag, unflag)
+•	Admin user who performed action
+•	Color coding by action type
+•	Filter Options: Action type, date range, admin user
+•	Detail Expandable: Click to see full JSON details of action
+________________________________________
+17. Micro-Interactions & Animations
+•	Button Interactions:
+•	Smooth 200ms hover scale and color transitions
+•	Active press animation (slight scale down)
+•	Loading spinner animation during submissions
+•	Success checkmark animation on completion
+•	Form Interactions:
+•	Smooth focus ring expansion (shadow growing)
+•	Auto-clear error message after 5 seconds with fade-out
+•	Animated validation icon appearance
+•	Shake animation for failed validation
+•	Navigation Transitions:
+•	Page fade-in/fade-out animations (150ms)
+•	Smooth active link indicator movements
+•	Hamburger menu smooth rotation animation
+•	Data Loading:
+•	Skeleton card pulse animations
+•	Staggered card entrance animations (50ms between each)
+•	Animated score counter incrementing from 0 to final value
+•	Map Interactions:
+•	Marker scale animation on hover
+•	Smooth popup fade-in with slight scale-up
+•	Eased map pan/zoom camera transitions
+•	Smooth layer opacity transitions when switching views
+•	Notification/Toast:
+•	Slide-in from top animation (200ms)
+•	Auto-dismiss with fade-out animation (500ms)
+•	Success/error color transitions
+•	Modals:
+•	Backdrop fade-in
+•	Modal scale-in from center (spring-like easing)
+•	Smooth close animation (scale down and fade)
+________________________________________
+18. Responsive Design Implementation
+•	Mobile First: Design starts at 320px width, scales up
+•	Breakpoints:
+•	Mobile: 320px-767px (single column, large touch targets 44px min)
+•	Tablet: 768px-1023px (two column, balanced spacing)
+•	Desktop: 1024px+ (full component library design)
+•	Touch Optimization:
+•	Buttons/links minimum 44x44px touch target on mobile
+•	Larger padding on mobile for comfortable interaction
+•	Modal/drawer full-height on mobile for accessibility
+•	Mobile Navigation: Hamburger drawer with full-screen overlay
+•	Card Stacking: Multi-column grids collapse to single column on smaller screens
+•	Map Optimization: Full-width map on mobile with controls repositioned, better touch responsiveness
+________________________________________
+19. Accessibility & Semantic HTML
+•	Keyboard Navigation: All interactive elements reachable via Tab key with visible focus indicators
+•	ARIA Labels: Descriptive labels on all buttons, icons, form fields
+•	Semantic HTML: Proper heading hierarchy (h1, h2, h3), buttons vs links, form labels
+•	Color Contrast: All text meets WCAG AA standards minimum 4.5:1 contrast
+•	Screen Reader Support: Descriptive alt text for icons, status announcements
+•	Focus Management: Modals trap focus, page transitions reset focus to main content
+•	Error Announcement: Form errors announced to screen readers immediately
+________________________________________
+20. Component State Management
+•	Hover States: All interactive elements show clear hover visual feedback
+•	Active/Selected States: Clear indicator that element is currently selected or active
+•	Disabled States: Greyed out appearance with no cursor change, not interactive
+•	Loading States: Spinner or skeleton inside component, button text changes to "Loading..."
+•	Empty States: Friendly illustrations with helpful messaging and action suggestions
+•	Error States: Red text/borders with icon, helpful error message, not just red color
+•	Success States: Green checkmark animation, success message toast notification
+________________________________________
+21. Dark Mode Support
+•	Theme Toggle: Button in user profile menu to switch theme preference
+•	Persistent Storage: User theme preference saved to localStorage
+•	System Preference Detection: Auto-detect OS dark mode preference on first visit
+•	Color Adjustments: All colors have dark mode variants maintaining readability and psychology
+•	Reduced Eye Strain: Softer backgrounds in dark mode, no pure black backgrounds
+•	Consistent Contrast: Dark mode maintains WCAG compliance for all text
+________________________________________
+22. Loading & Skeleton States
+•	Skeleton Screens: Placeholder cards matching content shape with subtle pulse animation
+•	Progressive Loading: Show skeleton for images/data, replace with real content smoothly
+•	Shimmer Effect: Optional shimmer animation across skeleton elements
+•	Lazy Loading: Map markers, images, and list items load progressively with fade-in
+________________________________________
+23. Design Tokens & Documentation
+•	Exported Design System: Complete design token file documenting colors, spacing, typography, shadows
+•	Component Library Documentation: Visual guide showing all component variants
+•	Usage Guidelines: When to use which component type, best practices
+•	Figma Integration: Optional design system synced with Figma for designer reference
+•	Storybook Setup: Optional component sandbox showing all variants and states
+________________________________________
+24. Project Foundation & Dependencies (Updated: Docker + Prisma Stack)
+•	Docker Setup: PostgreSQL 16 (latest stable) and Redis 7.2 (latest) in containers
+•	Docker Compose orchestration with volume persistence
+•	Prisma 5.22+ (latest) as ORM with type-safe client generation
+•	Node.js 20 LTS with Express.js 4.19+ for API server
+•	React 18.3+ with Vite 5.4+ and TypeScript 5.6+
+•	React Router 6.26+ for multi-page navigation
+•	Mapbox GL JS 3.7+ and react-map-gl 7.1+ for maps (API key: pk.eyJ1Ijoia2VueWFubm9vYiIsImEiOiJjbWl6MDI1YjQwaWJzM2dzZDVycTc5eG8wIn0.3FwhEXFAgdtWYskB7_amGw)
+•	Tailwind CSS 3.4+, Lucide React 0.446+, Framer Motion 11.5+
+•	Zod 3.23+ for validation, date-fns 3.6+ for date handling
+•	bcrypt 5.1+ for password hashing, jsonwebtoken 9.0+ for JWT auth
+•	express-rate-limit 7.4+ with Redis for rate limiting
+•	helmet 7.1+ for security headers, cors 2.8+ for CORS
+•	Set up environment variables for database, Redis, Mapbox, and JWT secrets
+•	Configure TypeScript path aliases for clean imports
+________________________________________
+25. Database Schema & Prisma Configuration
+•	Design Prisma schema with User model (id, email, password, role, timestamps)
+•	Create Building model (id, name, latitude, longitude, neighbourhood, city, suspicious flag, timestamps)
+•	Create Report model with relations to User and Building (utility type, status, timestamps, soft delete)
+•	Create AdminAuditLog model for tracking moderation actions (action type, admin user, target, metadata)
+•	Define Prisma enums for Role (USER, ADMIN), UtilityType (POWER, WATER, INTERNET), Status (STABLE, FLICKERING, OUTAGE)
+•	Set up Prisma indexes on frequently queried columns (building coordinates, report timestamps, user email)
+•	Configure Prisma migrations for reproducible database setup
+•	Use Prisma's @@unique and @@index directives for performance optimization
+•	Implement soft delete pattern with deletedAt timestamp on Report model
+________________________________________
+26. Scoring Engine & Business Logic
+•	Implement utility status to numeric value conversion logic
+•	Build recency weighting algorithm with 0-7 days and 8-30 days decay
+•	Create composite score calculation that averages all available utility scores
+•	Implement data trust validation rule requiring minimum 5 reports from 3+ users within 30 days
+•	Write reusable scoring functions that work for power, water, and internet utilities
+•	Add aggregation queries to efficiently calculate building scores from reports
+•	Create database views or functions for optimized score retrieval
+________________________________________
+27. Backend API Layer (Express + Prisma)
+•	Create Express.js REST API with TypeScript and Prisma Client
+•	Build authentication endpoints (/api/auth/register, /login, /logout) with JWT and HTTP-only cookies
+•	Implement report submission endpoint with Redis-based 12-hour rate limiting per user/utility/building
+•	Create building CRUD endpoints with Prisma queries and coordinate validation
+•	Build building search and filtering with Prisma's where clauses and pagination (take/skip)
+•	Implement admin moderation endpoints for soft-deleting reports (set deletedAt) and flagging buildings
+•	Add admin audit logging using Prisma transactions to ensure atomicity
+•	Apply Zod validation schemas to all API inputs with middleware
+•	Implement centralized error handling middleware with proper HTTP status codes
+•	Use Prisma's include and select for optimized query responses
+________________________________________
+28. Authentication & Session Management
+•	Create auth context provider for application-wide authentication state
+•	Build registration page with email, password, and confirmation validation
+•	Build login page with secure credential handling
+•	Implement logout functionality with session cleanup
+•	Create protected route wrapper component for authenticated pages
+•	Add role-based access control for admin-only routes
+•	Implement session persistence and automatic token refresh
+•	Build password strength validation on registration
+________________________________________
+29. Core Map Implementation (Mapbox GL JS 3.7+)
+•	Initialize Mapbox GL map using react-map-gl centered on Nairobi (-1.2921, 36.8219) with zoom level 11
+•	Configure Mapbox access token in environment variables
+•	Create custom building marker components using Mapbox Marker API with color coding based on scores
+•	Implement green markers (#10b981) for scores 75+ with subtle glow effect
+•	Implement yellow markers (#f59e0b) for scores 40-74 with steady appearance
+•	Implement red markers (#ef4444) for scores below 40 with attention-drawing glow
+•	Implement grey markers (#9ca3af) for buildings with insufficient data
+•	Add Supercluster for marker clustering with animated collapse/expand transitions
+•	Build click handlers using Mapbox Popup API to show building detail cards
+•	Create map layer controls for toggling between citywide, neighbourhood, and building views
+•	Implement optional heatmap layer using Mapbox heatmap layer type with score-based intensity
+•	Add NavigationControl, GeolocateControl, and custom search control
+•	Use flyTo() for smooth camera transitions between locations
+________________________________________
+30. Building Management Features
+•	Create building detail page showing all utility scores and composite score
+•	Display data trust warnings when insufficient data exists
+•	Show chronological list of recent reports for each building
+•	Build building creation flow with map click to select coordinates
+•	Create form for entering building name, neighbourhood, and city
+•	Implement building search page with filters by name, neighbourhood, and score ranges
+•	Add autocomplete for neighbourhood selection based on existing data
+•	Build building list view with sortable columns and pagination
+•	Create building cards displaying key metrics and visual score indicators
+________________________________________
+31. Report Submission System
+•	Create report submission page with building selection interface
+•	Build utility type selector for power, water, or internet
+•	Implement status dropdown with stable, flickering, and outage options
+•	Add form validation ensuring all required fields are completed
+•	Implement 12-hour cooldown timer display per utility per building
+•	Show submission confirmation with success messages
+•	Add error handling for duplicate reports within cooldown period
+•	Create report history view for users to see their past submissions
+________________________________________
+32. Admin Dashboard & Moderation
+•	Build admin-only navigation and dashboard layout
+•	Create reports management table showing all reports with filtering options
+•	Implement soft-delete functionality for removing inappropriate reports
+•	Add restore capability for accidentally deleted reports
+•	Build buildings management table with search and filter capabilities
+•	Create suspicious building flagging interface with notes field
+•	Implement admin audit log viewer showing all moderation actions with timestamps
+•	Add bulk actions for efficient moderation workflows
+•	Create admin statistics dashboard showing platform metrics
+________________________________________
+33. Performance & Optimization
+•	Implement lazy loading for map markers to handle thousands of buildings
+•	Add pagination to all list views to prevent loading excessive data
+•	Create database query optimization with proper indexes
+•	Implement React code splitting for faster initial page loads
+•	Add image optimization for any static assets
+•	Configure browser caching headers for static resources
+•	Implement debouncing on search inputs to reduce API calls
+•	Add loading skeletons for better perceived performance
+________________________________________
+34. Security & Validation
+•	Implement bcrypt password hashing with proper salt rounds
+•	Add CSRF protection to all state-changing operations
+•	Create rate limiting middleware for API endpoints
+•	Implement input sanitization to prevent XSS attacks
+•	Add SQL injection protection through parameterized queries
+•	Configure secure HTTP-only cookies for session management
+•	Implement proper CORS policies for API access
+•	Add request validation using Zod schemas on all endpoints
+•	Create error messages that don't leak sensitive information
+________________________________________
+35. Testing & Quality Assurance
+•	Write manual testing checklist for all user flows
+•	Test authentication flows including edge cases
+•	Verify report submission with rate limiting enforcement
+•	Test scoring calculations with various data scenarios
+•	Validate data trust rules are properly enforced
+•	Test admin moderation features and audit logging
+•	Verify map rendering and interaction on different devices
+•	Test responsive design across mobile, tablet, and desktop
+•	Check accessibility compliance with screen readers
+•	Verify all error states display appropriate messages
+________________________________________
+36. Documentation
+•	Create README.md with project overview, setup instructions, and running the app
+•	Document all environment variables required with example values
+•	List complete tech stack with version numbers
+•	Add step-by-step local development setup guide
+•	Create DEVELOPMENT.md with workflow guidelines and best practices
+•	Document database migration process and how to reset the database
+•	Provide testing instructions and manual QA checklist
+•	Create ARCHITECTURE.md explaining system design and data flow
+•	Document data model with entity relationship diagrams
+•	Explain scoring algorithm logic with examples
+•	Detail map architecture and Mapbox integration approach
+•	Add API documentation for all endpoints with request/response examples
+•	Create troubleshooting guide for common development issues
+•	Create DESIGN_SYSTEM.md documenting all colors, spacing, typography, components
+________________________________________
+37. Deployment Preparation
+•	Create production build configuration for Vite
+•	Set up environment variable management for production
+•	Configure Database project for production use
+•	Test production build locally before deployment
+•	Create deployment checklist ensuring all features work
+•	Document production environment setup requirements
+•	Add health check endpoints for monitoring
+•	Configure logging for production debugging
+

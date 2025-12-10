@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { MapPage } from './pages/MapPage';
+import { BuildingsPage } from './pages/BuildingsPage';
 
 function App() {
     return (
@@ -28,9 +29,16 @@ function App() {
                                 </ProtectedRoute>
                             }
                         />
+                        <Route
+                            path="/buildings"
+                            element={
+                                <ProtectedRoute>
+                                    <BuildingsPage />
+                                </ProtectedRoute>
+                            }
+                        />
 
                         {/* Placeholder routes for Phase 2 */}
-                        <Route path="/buildings" element={<div className="p-8 text-center">Buildings page - Coming in Phase 2</div>} />
                         <Route path="/buildings/:id" element={<div className="p-8 text-center">Building detail - Coming in Phase 2</div>} />
                         <Route path="/submit-report" element={<div className="p-8 text-center">Submit report - Coming in Phase 2</div>} />
                     </Routes>

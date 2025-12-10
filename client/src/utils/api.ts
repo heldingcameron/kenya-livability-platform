@@ -84,4 +84,12 @@ export const buildingApi = {
     },
 };
 
+// Report API
+export const reportApi = {
+    getMyReports: async (): Promise<{ reports: any[] }> => {
+        const { data } = await api.get<{ reports: any[] }>('/api/reports/my-reports');
+        return data;
+    },
+};
+
 export default api;

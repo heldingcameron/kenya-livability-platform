@@ -7,6 +7,7 @@ import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { MapPage } from './pages/MapPage';
 import { BuildingsPage } from './pages/BuildingsPage';
+import { ReportHistoryPage } from './pages/ReportHistoryPage';
 
 function App() {
     return (
@@ -34,6 +35,14 @@ function App() {
                             element={
                                 <ProtectedRoute>
                                     <BuildingsPage />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/reports/history"
+                            element={
+                                <ProtectedRoute>
+                                    <ReportHistoryPage />
                                 </ProtectedRoute>
                             }
                         />

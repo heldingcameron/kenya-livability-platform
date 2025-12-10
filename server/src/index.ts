@@ -53,13 +53,13 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Routes
 import authRoutes from './routes/auth.routes.js';
 import buildingRoutes from './routes/building.routes.js';
+import reportRoutes from './routes/report.routes.js';
 
 app.use('/api/auth', authRoutes);
 app.use('/api/buildings', buildingRoutes);
-// app.use('/api/reports', reportRoutes); // Phase 2
+app.use('/api/reports', reportRoutes);
 // app.use('/api/admin', adminRoutes); // Phase 3
 
 // Error handling middleware

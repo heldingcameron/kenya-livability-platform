@@ -8,7 +8,7 @@
 
 | Phase | Completion | Status |
 |-------|-----------|---------|
-| **Phase 1: Core Platform & MVP** | **85%** | 🟢 Nearly Complete |
+| **Phase 1: Core Platform & MVP** | **91%** | 🟢 Nearly Complete |
 | **Phase 2: Admin & Advanced Features** | **15%** | 🟡 In Progress |
 | **Phase 3: Polish & Production** | **20%** | 🟡 Partially Done |
 
@@ -56,10 +56,10 @@
 - [x] Navigation header with logo and user menu
 - [x] Loading spinner component
 - [x] Alert/error message components
-- [ ] Modal/dialog component
-- [ ] Dropdown/select component
-- [ ] Badge/pill components
-- [ ] Toast notification system
+- [x] Modal/dialog component
+- [x] Dropdown/select component
+- [x] Badge/pill components
+- [x] Toast notification system
 - [ ] Tooltip component
 
 ## 5. Map Implementation (Mapbox)
@@ -89,12 +89,12 @@
 - [x] Data trust warnings (insufficient data)
 - [x] Building API endpoints (GET /api/buildings, GET /api/buildings/:id)
 - [x] Scoring engine with recency weighting
-- [ ] Building search/browse page
-- [ ] Building filters (neighbourhood, score range)
-- [ ] Building sorting (name, score, last report)
+- [x] Building search/browse page
+- [x] Building filters (neighbourhood, score range)
+- [x] Building sorting (name, score, last report)
 - [ ] Building creation flow
-- [ ] Empty states for no buildings found
-- [ ] Pagination for building lists
+- [x] Empty states for no buildings found
+- [x] Pagination for building lists
 
 ## 7. Report Submission System
 - [x] Report submission page
